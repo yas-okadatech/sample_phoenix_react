@@ -8,5 +8,10 @@
     "css-brunch": ">= 1.0 < 1.8",
     "javascript-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8"
+  },
+  "scripts": {
+    "init": "npm run update && mix ecto.create",
+    "update": "npm update && mix deps.get",
+    "serve": "mix phoenix.server"
   }
 }
