@@ -3,7 +3,7 @@ import gulp from 'gulp';
 let $ = require('gulp-load-plugins')();
 import sourcemaps from 'gulp-sourcemaps';
 import buffer from 'vinyl-buffer';
-import sass from 'gulp-ruby-sass';
+import sass from 'gulp-sass';
 import size from 'gulp-size';
 
 import browserify from 'browserify';
@@ -29,13 +29,18 @@ let sourceFile = dirWebJs + '/app.js',
 gulp.task('styles', ['sass']);
 
 gulp.task('sass', () => {
-  return sass(dirWebCss + '/app.scss', {
-    style: 'expanded',
-    precision: 10,
-    loadPath: ['node_modules/']
-  })
-    //.pipe($.autoprefixer('last 1 version'))
-    .pipe(gulp.dest("priv/static/css/"))
+  return gulp.src(dirWebCss + '/app.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: [
+        dirWebCss,
+        dirNode + '/bootstrap-sass/assets/stylesheets',
+        dirNode + '/font-awesome/scss/'
+      ]
+    }).on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(dirDestCss))
     .pipe(size());
 });
 

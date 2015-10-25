@@ -20,9 +20,18 @@
 
 // import socket from "./socket"
 
-import React from "react";
-//import ReactDOM from 'bower_components/react/react_dom';
+window.$ = window.jQuery = require('jquery');
+require('bootstrap');
 
-// Render the main component into the dom
-React.render(<div>Hello world!!</div>,
-  document.body);
+import 'babel-core/polyfill';
+import React from 'react';
+import { render } from 'react-dom';
+import Root from './containers/Root';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+
+render(
+  <Root store={store}/>,
+  document.getElementById('root')
+);
