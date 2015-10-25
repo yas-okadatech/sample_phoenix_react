@@ -39,7 +39,7 @@ gulp.task('sass', () => {
         dirNode + '/font-awesome/scss/'
       ]
     }).on('error', sass.logError))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(dirDestCss))
     .pipe(size());
 });
