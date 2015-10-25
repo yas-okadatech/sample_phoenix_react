@@ -8,9 +8,7 @@
 
 `npm run serve`
 
-[http://localhost:4000](http://localhost:4000)
+access to [http://localhost:4000](http://localhost:4000)
 
 ## To do
-* react
-* bootstrap
 * webpack(?)
