@@ -1,17 +1,43 @@
 {
-  "repository": {
-  },
+  "repository": {},
+  "license": "MIT",
   "dependencies": {
-    "brunch": "^1.8.5",
-    "babel-brunch": "^5.1.1",
-    "clean-css-brunch": ">= 1.0 < 1.8",
-    "css-brunch": ">= 1.0 < 1.8",
-    "javascript-brunch": ">= 1.0 < 1.8",
-    "uglify-js-brunch": ">= 1.0 < 1.8"
+    "bootstrap": "^3.3.5",
+    "bootstrap-sass": "^3.3.5",
+    "font-awesome": "^4.4.0",
+    "history": "^1.12.5",
+    "isomorphic-fetch": "^2.2.0",
+    "jquery": "^2.1.4",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-redux": "^4.0.0",
+    "react-router": "^1.0.0-rc3",
+    "redux": "^3.0.4",
+    "redux-logger": "^2.0.4",
+    "redux-router": "^1.0.0-beta3",
+    "redux-thunk": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-cache": "^0.3.0",
+    "gulp-load-plugins": "^1.0.0",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-size": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-debug": "^1.0.2",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
   },
   "scripts": {
-    "init": "npm run update && mix ecto.create",
+    "init": "npm run update && mix ecto.create && mix ecto.migrate",
     "update": "npm update && mix deps.get",
-    "serve": "mix phoenix.server"
+    "serve": "iex -S mix phoenix.server"
   }
 }
