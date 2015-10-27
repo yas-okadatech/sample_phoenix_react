@@ -50,13 +50,15 @@ App.propTypes = {
   errorMessage: PropTypes.string,
   resetErrorMessage: PropTypes.func.isRequired,
   pushState: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
   // Injected by React Router
   children: PropTypes.node
 };
 
 function mapStateToProps(state) {
   return {
-    errorMessage: state.errorMessage
+    errorMessage: state.errorMessage,
+    inputValue: state.router.location.pathname.substring(1)
   };
 }
 
